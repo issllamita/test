@@ -69,6 +69,46 @@ int print_int(va_list arp, _paramet *param);
 int print_string(va_list arp, _paramet *param);
 int print_percent(va_list arp, _paramet *param);
 int print_S(va_list arp, _paramet *param);
-/*
+/* numbers.c module */
+char *convert(long int num, int base, int flags, _paramet *param);
+int print_unsigned(va_list arp, _paramet *param);
+int print_address(va_list arp, _paramet *param);
+
+/* specifier.c module */
+int (*get_specifier(char *s))(va_list arp, _paramet *param);
+int get_print_func(char *s, va_list arp, _paramet *param);
+int get_flag(char *s, _paramet *param);
+int get_modifier(char *s, _paramet *param);
+char *get_width(char *s, _paramet *param, va_list arp);
+
+/* convert_number.c module */
+int print_hex(va_list arp, _paramet *param);
+int print_HEX(va_list arp, _paramet *param);
+int print_binary(va_list arp, _paramet *param);
+int print_octal(va_list arp, _paramet *param);
+
+/* simple_printers.c module */
+int print_form_to(char *start, char *stop, char *except);
+int print_rot13(va_list arp, _paramet *param);
+int print_rot13(va_list arp, _paramet *param);
+
+/* print_number.c module */
+int _isdigit(int c);
+int _strlen(char *s);
+int print_number(char *strg, _paramet *param);
+int print_number_right-shift(char *strg, _paramet *param);
+int print_number_left_shift(char *strg, _paramet *param);
+
+/* param.c module */
+
+void init_param(_paramet *param, va_list arp);
+
+/* string_fields.c */
+char *get_precision(char *p, _paramet *param, va_list arp);
+
+/* _printf.c */
+int _printf(const char *format, ...);
+
+#endif
 
 
